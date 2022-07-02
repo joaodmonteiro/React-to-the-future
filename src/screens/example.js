@@ -1,12 +1,8 @@
 import { React, useState, useEffect } from 'react';
-import {
-    Box,
-    Text,
-  } from '@chakra-ui/react';
-import {Nav} from '../components/bottom-nav'
+import { Box, Text } from '@chakra-ui/react';
 export const ExampleFetch = () => {
   const [airQualityData, setAirQualityData] = useState([]);
-  console.log(airQualityData)
+  console.log(airQualityData);
 
   useEffect(() => {
     async function getAirQuality() {
@@ -31,17 +27,15 @@ export const ExampleFetch = () => {
 
   return (
     <>
-        <Box>
-            <Text size="large" color="black">
-            Air Quality Data:
-            </Text>
-            {/* Show lat and long */}
-            {airQualityData.map(data => {
-            return <Text>{data.OZONE}</Text>;
-            })}
-        </Box>
-        <Nav />
+      <Box>
+        <Text size="large" color="black">
+          Air Quality Data:
+        </Text>
+        {/* Show lat and long */}
+        {airQualityData.map(data => {
+          return <Text>{data.OZONE}</Text>;
+        })}
+      </Box>
     </>
   );
-}
-
+};
