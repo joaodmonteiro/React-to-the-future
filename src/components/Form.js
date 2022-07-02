@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import styles from '../styles/Form.module.css';
+import fetchMapsAPI from '../hooks/fetchMapsAPI';
 
 export default function Form() {
   const fromInputRef = useRef();
@@ -12,6 +13,7 @@ export default function Form() {
     const toLocation = toInputRef.current.value;
 
     // Call Google Maps API
+    const data = fetchMapsAPI(fromLocation, toLocation);
   }
   return (
     <div className={styles.container}>
