@@ -13,7 +13,7 @@ export default function Form() {
     const toLocation = toInputRef.current.value;
 
     // Call Google Maps API
-    const data = fetchMapsAPI(fromLocation, toLocation);
+    // const data = fetchMapsAPI(fromLocation, toLocation);
   }
   return (
     <div className={styles.container}>
@@ -26,4 +26,19 @@ export default function Form() {
       </form>
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const resp = await fetch(
+    `https://maps.googleapis.com/maps/api/directions/json?origin=london&destination=leeds&mode=transit&key=${process.env.REACT_APP_GOOGLE_MAPS_API}`
+  );
+
+  // https://cors-anywhere.herokuapp.com/
+  const data = await resp.json();
+
+  console.log(data);
+
+  return {
+    props: {},
+  };
 }
