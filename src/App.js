@@ -4,7 +4,7 @@ import { Home } from './screens/home';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Home />
+      {/* <Home /> */}
     </ChakraProvider>
   );
 }
